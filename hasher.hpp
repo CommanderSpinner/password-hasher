@@ -23,10 +23,6 @@ private:
     void hashF();
 
 public:
-    Hasher(std::string hash_algo,
-           std::string password,
-           size_t iterations,
-           size_t key_length
-    );
+    Hasher(std::string hash_algo, std::string password, size_t iterations, size_t key_length);
     ~Hasher();
 };
