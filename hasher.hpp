@@ -25,7 +25,6 @@ private:
 public:
     Hasher(std::string hash_algo,
            std::string password,
-           std::vector<uint8_t> salt,
            size_t iterations,
            size_t key_length
     );
