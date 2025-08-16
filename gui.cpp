@@ -4,16 +4,24 @@ Gui::Gui(){
     set_title("Passwword Hasher");
     set_default_size(300, 100);
 
-    input.set_placeholder_text("");
+    input.set_placeholder_text("Enter password to hash");
+
+    hash_algorithm_dropdown.append("MD5");
+    hash_algorithm_dropdown.append("SHA-256");
+    hash_algorithm_dropdown.append("SHA-512");
+    hash_algorithm_dropdown.set_active(0);
 
     // Configure button
-    button.set_label("Click me!");
+    button.set_label("Hash");
     button.signal_clicked().connect(sigc::mem_fun(*this, &Gui::on_button_clicked));
 
-    // Add to container
-    //box.pack_start(label);
+    // Add to container in a logical order:
+    // Dropdown -> Input -> Button
+    box.set_spacing(10); // Add some space between widgets
+    box.pack_start(hash_algorithm_dropdown, Gtk::PackOptions::PACK_SHRINK);
     box.pack_start(input);
-    box.pack_start(button);
+    box.pack_end(button, Gtk::PackOptions::PACK_SHRINK);
+
     add(box);
 
     //label.set_text("Hello, gtkmm!");
@@ -25,4 +33,9 @@ Gui::~Gui(){
 }
 
 void Gui::on_button_clicked(){
+    // Get the selected hash algorithm from the dropdown
+    Glib::ustring selected_algorithm = hash_algorithm_dropdown.get_active_text();
+
+    // Get the text from the input field
+    Glib::ustring password_to_hash = input.get_text();
 }
