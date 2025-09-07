@@ -6,9 +6,24 @@ Gui::Gui(){
 
     input.set_placeholder_text("Enter password to hash");
 
-    hash_algorithm_dropdown.append("MD5");
-    hash_algorithm_dropdown.append("SHA-256");
-    hash_algorithm_dropdown.append("SHA-512");
+    std::array<std::string, 8> algorithms;
+    algorithms[0] = "MD5";
+    algorithms[1] = "SHA-256";
+    algorithms[2] = "SHA-512";
+    algorithms[3] = "SHA-3";
+    algorithms[4] = "BLAKE2b";
+    algorithms[5] = "Argon2";
+    algorithms[6] = "Bcrypt";
+    algorithms[7] = "Scrypt";
+
+
+    for (int i = 0; i < algorithms.size(); i++) {
+        hash_algorithm_dropdown.append(algorithms[i]);
+    }
+
+    //hash_algorithm_dropdown.append("MD5");
+    //hash_algorithm_dropdown.append("SHA-256");
+    //hash_algorithm_dropdown.append("SHA-512");
     hash_algorithm_dropdown.set_active(0);
 
     // Configure button

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <gtkmm.h>
+#include <array>
 
 class Gui : public Gtk::Window{
 public:
