@@ -21,6 +21,9 @@ Hasher::Hasher(std::string hash_algo,
 
 
     this->hash_algo = hash_algo;
+    this->password = password;
+    this->iterations = iterations;
+    this->key_length = key_length;
 }
 
 Hasher::~Hasher(){

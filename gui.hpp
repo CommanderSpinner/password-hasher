@@ -2,6 +2,7 @@
 
 #include <gtkmm.h>
 #include <array>
+#include "hasher.hpp"
 
 class Gui : public Gtk::Window{
 public:
