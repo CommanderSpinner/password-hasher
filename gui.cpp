@@ -47,5 +47,7 @@ void Gui::on_button_clicked(){
 
     Glib::ustring password_to_hash = input.get_text();
 
+    std::cout << "password size: " << password_to_hash.size() << "\n";
+
     Hasher h(selected_algorithm, password_to_hash, 5, password_to_hash.size()); // later implement input for iterations
 }
