@@ -9,19 +9,16 @@
 #include <vector>
 #include <memory>
 
-
 class Hasher{
 private:
     Botan::AutoSeeded_RNG rng;
-
     std::string password;
     std::string hash_algo;
     std::vector<uint8_t> salt;
     size_t iterations;
     size_t key_length;
-
+    
     void hashF();
-
 public:
     Hasher(std::string hash_algo, std::string password, size_t iterations, size_t key_length);
     ~Hasher();
