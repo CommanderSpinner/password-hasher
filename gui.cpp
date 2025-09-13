@@ -50,4 +50,11 @@ void Gui::on_button_clicked(){
     std::cout << "password size: " << password_to_hash.size() << "\n";
 
     Hasher h(selected_algorithm, password_to_hash, 5, password_to_hash.size()); // later implement input for iterations
+    
+    // pop up for showing the hashed password at the end
+    Gtk::MessageDialog popUp(*this, h.getHashOfPassword(), false,
+        Gtk::MessageType::MESSAGE_INFO,
+        Gtk::ButtonsType::BUTTONS_OK, true);
+
+        popUp.run();
 }

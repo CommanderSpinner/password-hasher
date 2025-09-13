@@ -18,7 +18,7 @@ Hasher::Hasher(std::string hash_algo,
 {
     std::cout << "creating hashser \n";
 
-
+    hashOfPassword = "-1";
 
     this->hash_algo = hash_algo;
     this->password = password;
@@ -56,5 +56,9 @@ void Hasher::hashF()
         std::cout << "SHA-3(512) Hash: " << hex_digest2 << std::endl;
     }
     */
+}
+
+std::string Hasher::getHashOfPassword() {
+    return hashOfPassword;
 }
 
