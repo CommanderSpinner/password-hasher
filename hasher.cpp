@@ -18,12 +18,14 @@ Hasher::Hasher(std::string hash_algo,
 {
     std::cout << "creating hashser \n";
 
-    hashOfPassword = "-1";
+    this->hashOfPassword = "-1"; // initialise it to -1 in case something goes wrong its -1
 
     this->hash_algo = hash_algo;
     this->password = password;
     this->iterations = iterations;
     this->key_length = key_length;
+
+    this->hashF();
 }
 
 Hasher::~Hasher(){
@@ -45,17 +47,7 @@ void Hasher::hashF()
     std::cout << "password: " << password << std::endl;
     std::cout << "Hash: " << hex_digest << std::endl;
 
-    // Example with another hash
-    /*
-    std::string data2 = "Another piece of data.";
-    std::unique_ptr<Botan::HashFunction> hash_sha3_512(Botan::HashFunction::create("SHA-3(512)"));
-    if (hash_sha3_512) {
-        hash_sha3_512->update(data2);
-        std::string hex_digest2 = Botan::hex_encode(hash_sha3_512->final());
-        std::cout << "Data: " << data2 << std::endl;
-        std::cout << "SHA-3(512) Hash: " << hex_digest2 << std::endl;
-    }
-    */
+    this->hashOfPassword = hex_digest;
 }
 
 std::string Hasher::getHashOfPassword() {
